@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:snaft/const.dart';
 import 'package:snaft/ui/home/home_screen.dart';
+import 'package:snaft/ui/splash/components/body.dart';
+import 'package:snaft/ui/splash/splash_screen.dart';
 
 void main() {
   runApp(const Snaft());
@@ -41,8 +43,9 @@ class Snaft extends StatelessWidget {
       initialRoute: '/',
 
       routes: {
-        '/' : (context) => const HomeScreen(),
-        '/search' : (context) => const HomeScreen(),
+        '/' : (context) => const SplashScreen(),
+        '/body' : (context) => const Body(),
+        '/search' : (context) => SearchBar(),
         '/favorite' : (context) => const HomeScreen(),
         '/profile' : (context) => const HomeScreen(),
       },
