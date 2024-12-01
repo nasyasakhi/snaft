@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:snaft/const.dart';
-import 'package:snaft/ui/home/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
