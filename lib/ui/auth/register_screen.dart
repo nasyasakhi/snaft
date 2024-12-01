@@ -143,7 +143,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           );
                        Future.delayed(const Duration(seconds: 1), () {
-                       Navigator.pushReplacementNamed(context, '/home');
+                       Navigator.pushReplacementNamed(context, '/body');
                          });
                         }
                       },

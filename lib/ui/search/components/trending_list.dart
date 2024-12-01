@@ -15,7 +15,6 @@ class TrendingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // color: Colors.amber,
       height: 52 * trendingList.length.toDouble(),
       child: ListView.builder(
         itemCount: trendingList.length,

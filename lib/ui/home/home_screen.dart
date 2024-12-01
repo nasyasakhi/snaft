@@ -5,6 +5,7 @@ import 'package:snaft/ui/favorite/favorite_screen.dart';
 import 'package:snaft/ui/home/components/bottom_nav_bar.dart';
 import 'package:snaft/ui/home/components/categories.dart';
 import 'package:snaft/ui/profile/profile_screen.dart';
+import 'package:snaft/ui/search/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> get _widgetOptions{
     return [
       const HomeScreen(),
-      const SearchBar(),
+      const SearchScreen(),
       const CameraScreen(),
       const FavoriteScreen(),
       const ProfileScreen()
@@ -36,7 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // function untuk aksi tap pada bottom navbar
   void _onItemTapped(int index) {
-    // menyatakan bahwa inisial action untuk objek (bottom nav) pada index ke-0
     setState(() {
       _selectedIndex = index;
     });
