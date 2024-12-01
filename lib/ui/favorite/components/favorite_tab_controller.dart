@@ -1,6 +1,7 @@
 import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
 import 'package:flutter/material.dart';
 import 'package:snaft/const.dart';
+import 'package:snaft/ui/favorite/components/empty_favorite.dart';
 import 'package:snaft/ui/favorite/components/favorite_from_community.dart';
 
 class FavoriteTabController extends StatelessWidget {
@@ -32,16 +33,12 @@ class FavoriteTabController extends StatelessWidget {
                 SegmentTab(label: "My Recipes"),
               ]
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: defaultPadding * 4),
+            const Padding(
+              padding: EdgeInsets.only(top: defaultPadding * 4),
               child: TabBarView(
                 children: [
-                  const FavoriteFromCommunity(),
-                  Container(
-                    height: double.infinity,
-                    width: double.infinity,
-                    color: Colors.pinkAccent,
-                  )
+                  FavoriteFromCommunity(),
+                  EmptyFavorite()
                 ]
               ),
             )

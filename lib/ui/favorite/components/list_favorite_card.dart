@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snaft/const.dart';
 import 'package:snaft/models/recipes.dart';
 
@@ -56,6 +57,12 @@ class ListFavoriteCard extends StatelessWidget {
               ),
             ],
           ),
+          const Spacer(),
+          SvgPicture.asset(
+            'assets/icons/fi-sr-bookmark.svg',
+            colorFilter: const ColorFilter.mode(primaryColor, BlendMode.srcIn),
+          ),
+          const SizedBox(width: defaultPadding)
         ],
       ),
     );
