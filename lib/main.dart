@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:snaft/const.dart';
 import 'package:snaft/ui/favorite/favorite_screen.dart';
+import 'package:snaft/ui/favorite/components/favorite_tab_controller.dart';
 import 'package:snaft/ui/home/home_screen.dart';
 import 'package:snaft/ui/profile/profile_screen.dart';
 import 'package:snaft/ui/search/search_screen.dart';
@@ -21,7 +24,7 @@ class Snaft extends StatelessWidget {
       title: 'Snaft',
       theme: ThemeData(
         brightness: Brightness.light,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: const Color(0xFFF7FAFC),
         fontFamily: 'Signika',
         visualDensity: VisualDensity.adaptivePlatformDensity,
 
@@ -46,11 +49,11 @@ class Snaft extends StatelessWidget {
       initialRoute: '/',
 
       routes: {
-        '/hai' : (context) => const SplashScreen(),
+        '/i' : (context) => const SplashScreen(),
         '/body' : (context) => const Body(),
         '/home' : (context) => const HomeScreen(),
-        '/' : (context) => const SearchScreen(),
-        '/favorite' : (context) => const FavoriteScreen(),
+        '/search' : (context) => const SearchScreen(),
+        '/' : (context) => const FavoriteScreen(),
         '/profile' : (context) => const ProfileScreen(),
       },
     );

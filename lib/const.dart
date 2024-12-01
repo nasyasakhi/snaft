@@ -23,11 +23,12 @@ const subMainTitle = TextStyle(
 const subTitle = TextStyle(
   color: textColor,
   fontSize: 22,
+  fontWeight: FontWeight.w600
 );
 
 const linkText = TextStyle(
   color: secondaryColor,
-  fontSize: 14,
+  fontSize: 16,
 );
 
 const cardTitle = TextStyle(
@@ -36,7 +37,7 @@ const cardTitle = TextStyle(
 );
 
 const cardText = TextStyle(
-  color: textColor,
+  color: textColorSmall,
   fontSize: 14,
 );
 
