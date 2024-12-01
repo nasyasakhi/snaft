@@ -44,7 +44,7 @@ class Snaft extends StatelessWidget {
       routes: {
         '/' : (context) => const SplashScreen(),
         '/body' : (context) => const Body(),
-        '/search' : (context) => SearchBar(),
+        '/search' : (context) => const SearchBar(),
         '/favorite' : (context) => const HomeScreen(),
         '/profile' : (context) => const HomeScreen(),
       },

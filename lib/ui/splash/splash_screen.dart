@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snaft/const.dart';
+import 'package:snaft/size_config.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,6 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context); 
     return const Scaffold(
       backgroundColor: primaryColor,
       body: Center(
@@ -30,6 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
             style: TextStyle(
               fontSize: 65,
               fontWeight: FontWeight.w600,
+              color: Colors.white
             ),
           )
           ],
