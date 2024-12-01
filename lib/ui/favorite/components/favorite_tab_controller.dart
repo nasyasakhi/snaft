@@ -26,10 +26,10 @@ class FavoriteTabController extends StatelessWidget {
                 fontSize: 16,
                 fontFamily: 'Signika',
               ),
-              tabs: [
-                const SegmentTab(
+              tabs: const [
+                SegmentTab(
                   label: "From Community"),
-                const SegmentTab(label: "My Recipes"),
+                SegmentTab(label: "My Recipes"),
               ]
             ),
             Padding(

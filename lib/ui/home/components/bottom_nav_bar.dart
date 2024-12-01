@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snaft/const.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -10,25 +11,27 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
+      items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.home_filled),
+          icon: SvgPicture.asset('/assets/icons/fi-rr-home.svg'),
           label: 'Home'
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search_rounded),
+          icon: SvgPicture.asset(
+            'assets/icons/fi-rr-heart.svg',
+          ),
           label: 'Wishlist'
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.camera_alt_rounded),
+          icon: SvgPicture.asset('/assets/icons/fi-rr-camera.svg'),
           label: 'Cart'
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_border_rounded),
+          icon: SvgPicture.asset('/assets/icons/fi-rr-settings.svg'),
           label: 'Settings'
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: SvgPicture.asset('/assets/icons/fi-rr-user.svg'),
           label: 'Profile'
         )
       ],
