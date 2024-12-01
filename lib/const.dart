@@ -23,21 +23,22 @@ const subMainTitle = TextStyle(
 const subTitle = TextStyle(
   color: textColor,
   fontSize: 22,
+  fontWeight: FontWeight.w600
 );
 
 const linkText = TextStyle(
   color: secondaryColor,
-  fontSize: 14,
+  fontSize: 16,
 );
 
 const cardTitle = TextStyle(
   color: textColor,
-  fontSize: 14,
+  fontSize: 16,
 );
 
 const cardText = TextStyle(
-  color: textColor,
-  fontSize: 12,
+  color: textColorSmall,
+  fontSize: 14,
 );
 
 // =============== SIZE & DURATION ===============
