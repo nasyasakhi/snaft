@@ -32,12 +32,12 @@ const linkText = TextStyle(
 
 const cardTitle = TextStyle(
   color: textColor,
-  fontSize: 14,
+  fontSize: 16,
 );
 
 const cardText = TextStyle(
   color: textColor,
-  fontSize: 12,
+  fontSize: 14,
 );
 
 // =============== SIZE & DURATION ===============
