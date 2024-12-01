@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -9,7 +11,7 @@ class SearchScreen extends StatelessWidget {
       body: Column(
         children: [
           SearchBar(
-            backgroundColor: MaterialStateProperty<Color>(),
+            backgroundColor: MaterialStatePropertyAll(Colors.blueGrey.shade300),
           )
         ],
       ),
