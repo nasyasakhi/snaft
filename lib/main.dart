@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snaft/const.dart';
+import 'package:snaft/ui/auth/login_screen.dart';
+import 'package:snaft/ui/auth/register_screen.dart';
 import 'package:snaft/ui/favorite/favorite_screen.dart';
 import 'package:snaft/ui/home/home_screen.dart';
 import 'package:snaft/ui/profile/profile_screen.dart';
@@ -47,6 +49,8 @@ class Snaft extends StatelessWidget {
       routes: {
         '/' : (context) => const SplashScreen(),
         '/body' : (context) => const Body(),
+        '/login' : (context) => const LoginScreen(),
+        '/register' : (context) => const RegisterScreen(),
         '/home' : (context) => const HomeScreen(),
         '/search' : (context) => const SearchScreen(),
         '/favorite' : (context) => const FavoriteScreen(),

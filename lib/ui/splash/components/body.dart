@@ -20,13 +20,13 @@ class _BodyState extends State<Body> {
       "image": "assets/images/splash/splash_snaft_1.png"
     },
     {
-      "title": "Scan QR Code!",
-      "subtitle": "Unlock endless possibilities and \n connect effortlessly with just one scan",
+      "title": "Healthy Recipes",
+      "subtitle": "Browse thousands of healthy recipes \n from all over the world.",
       "image": "assets/images/splash/splash_snaft_2.png"
     },
     {
-      "title": "Scan QR Code!",
-      "subtitle": "Unlock endless possibilities and \n connect effortlessly with just one scan",
+      "title": "Track Your Health",
+      "subtitle": "With amazing inbuilt tools you can \n track your progress.",
       "image": "assets/images/splash/splash_snaft_3.png"
     },
   ];
@@ -74,12 +74,12 @@ class _BodyState extends State<Body> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: primaryColor,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(borderRadiusSizeMine),
                         ),
                       ),
                       onPressed: () {
                         if (currentPage == splashData.length - 1) {
-                          Navigator.pushNamed(context, '/scanner');
+                          Navigator.pushNamed(context, '/login');
                         } else {
                           _pageController.nextPage(
                             duration: animationDuration,
@@ -94,15 +94,29 @@ class _BodyState extends State<Body> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/scanner');
-                    },
-                    child: const Text(
-                      "Already Have An Account? Log In",
-                      style: TextStyle(color: primaryColor),
+                   Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Already have an account? ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                          Navigator.pushNamed(context, '/login');
+                          },
+                          child: const Text(
+                            'Log In',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                   ),
                 ],
               ),
             ),
@@ -117,10 +131,10 @@ class _BodyState extends State<Body> {
       margin: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
-        color: currentPage == index ? primaryColor : Colors.grey,
+        color: currentPage == index ? secondaryColor : secondaryColorThin,
       ),
-      width: currentPage == index ? 20 : 7,
-      height: 5,
+      width: currentPage == index ? 20 : 14,
+      height: 10,
       duration: animationDuration,
     );
   }

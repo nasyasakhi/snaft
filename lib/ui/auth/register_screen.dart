@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:snaft/const.dart';
-import 'package:snaft/ui/home/home_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final _formSignUpKey = GlobalKey<FormState>();
   bool isPasswordVisible = false;
 
@@ -39,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Title
                 const Text(
-                  'Sign In',
+                  'Sign Up',
                   style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
@@ -49,12 +48,28 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Subtitle
                 const Text(
-                  'Enter your emails and password',
+                  'Enter your credentials to continue',
                   style: TextStyle(
-                    color: textColorSmall,
+                    color: Colors.grey,
                   ),
                 ),
                 const SizedBox(height: 30.0),
+
+                // Username Field
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Username is required';
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(
+                    labelText: 'Username',
+                    labelStyle: TextStyle(color: Colors.grey),
+                    border: UnderlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 20.0),
 
                 // Email Field
                 TextFormField(
@@ -69,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   decoration: const InputDecoration(
                     labelText: 'Email',
-                    labelStyle: TextStyle(color: textColorSmall),
+                    labelStyle: TextStyle(color: Colors.grey),
                     border: UnderlineInputBorder(),
                   ),
                 ),
@@ -89,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   decoration: InputDecoration(
                     labelText: 'Password',
-                    labelStyle: const TextStyle(color: textColorSmall),
+                    labelStyle: const TextStyle(color: Colors.grey),
                     border: const UnderlineInputBorder(),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -107,22 +122,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 20.0),
 
-                Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: const Text(
-                      'Forgot password?',
-                      style: TextStyle(
-                        color: primaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20.0),
+                // Terms and Policy
+                const Text(
+                  'By continuing you agree to our Terms of Service and Privacy Policy',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: textColorSmall, fontSize: 12.0),
+                ),
+                const SizedBox(height: 40.0),
 
                 // Sign Up Button
                 Center(
@@ -133,9 +139,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         if (_formSignUpKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content: Text('Sign In Successful'),
+                              content: Text('Sign Up Successful'),
                             ),
-                          );    
+                          );
                        Future.delayed(const Duration(seconds: 1), () {
                        Navigator.pushReplacementNamed(context, '/home');
                          });
@@ -149,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       child: const Text(
-                        'Sign In',
+                        'Sign Up',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white
@@ -171,10 +177,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                         Navigator.pushNamed(context, '/register');
+                         Navigator.pushNamed(context, '/login');
                         },
                         child: const Text(
-                          'Sign In',
+                          'Log In',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: primaryColor,
