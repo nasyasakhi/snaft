@@ -28,6 +28,7 @@ class Snaft extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
 
         appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFFF6FAFC),
           iconTheme: IconThemeData(
             color: textColor
           ),
