@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   decoration: InputDecoration(
                     labelText: 'Email',
-                    labelStyle: TextStyle(color: textColorSmall),
+                    labelStyle: const TextStyle(color: textColorSmall),
                     enabledBorder: enabledUnderline,
                     focusedBorder: focusedUnderline,
                     errorBorder: errorUnderline
