@@ -59,7 +59,7 @@ class ListFavoriteCard extends StatelessWidget {
           ),
           const Spacer(),
           SvgPicture.asset(
-            'assets/icons/fi-sr-bookmark.svg',
+            'assets/icons/fi-sr-heart.svg',
             colorFilter: const ColorFilter.mode(primaryColor, BlendMode.srcIn),
           ),
           const SizedBox(width: defaultPadding)

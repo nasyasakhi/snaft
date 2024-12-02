@@ -25,17 +25,13 @@ class SplashContent extends StatelessWidget {
         const SizedBox(height: 20),
         Text(
           title,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: getProportionateScreenWidth(24.0),
-            fontWeight: FontWeight.bold,
-          ),
+          style: textTitle
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: defaultPadding / 2),
         Text(
           subtitle,
           style: TextStyle(
-            color: Colors.grey,
+            color: textColorSmall,
             fontSize: getProportionateScreenWidth(16),
           ),
           textAlign: TextAlign.center,

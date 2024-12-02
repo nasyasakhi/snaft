@@ -10,6 +10,7 @@ class FavoriteScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Favorite Recipes"),
+        automaticallyImplyLeading: false,
       ),
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: defaultPadding, vertical: defaultPadding * 2),

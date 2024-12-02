@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:snaft/const.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 50.0),
+          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 120.0),
           child: Form(
             key: _formSignUpKey,
             child: Column(
@@ -27,33 +28,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Center(
                   child: Text(
                     'Snaft',
-                    style: TextStyle(
-                      fontSize: 32.0,
-                      fontWeight: FontWeight.bold,
-                      color: primaryColor,
-                    ),
+                    style: mainTitle
                   ),
                 ),
                 const SizedBox(height: 50.0),
 
                 // Title
-                const Text(
+                Text(
                   'Sign In',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: textTitle
                 ),
-                const SizedBox(height: 10.0),
+                const SizedBox(height: defaultPadding / 2),
 
                 // Subtitle
                 const Text(
                   'Enter your emails and password',
-                  style: TextStyle(
-                    color: textColorSmall,
-                  ),
+                  style: subMainTitle
                 ),
-                const SizedBox(height: 30.0),
+                const SizedBox(height: defaultPadding * 1.5),
 
                 // Email Field
                 TextFormField(
@@ -66,13 +58,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                     return null;
                   },
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Email',
                     labelStyle: TextStyle(color: textColorSmall),
-                    border: UnderlineInputBorder(),
+                    enabledBorder: enabledUnderline,
+                    focusedBorder: focusedUnderline,
+                    errorBorder: errorUnderline
                   ),
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: defaultPadding),
 
                 // Password Field
                 TextFormField(
@@ -89,12 +83,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                     labelText: 'Password',
                     labelStyle: const TextStyle(color: textColorSmall),
-                    border: const UnderlineInputBorder(),
+                    enabledBorder: enabledUnderline,
+                    focusedBorder: focusedUnderline,
+                    errorBorder: errorUnderline,
                     suffixIcon: IconButton(
-                      icon: Icon(
+                      icon: SvgPicture.asset(
                         isPasswordVisible
-                            ? Icons.visibility
-                            : Icons.visibility_off,
+                            ? 'assets/icons/fi-rr-eye.svg'
+                            : 'assets/icons/fi-rr-eye-crossed.svg',
+                        colorFilter: const ColorFilter.mode(textColorSmall, BlendMode.srcIn),
                       ),
                       onPressed: () {
                         setState(() {
@@ -104,8 +101,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20.0),
-
                 Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -115,13 +110,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       'Forgot password?',
                       style: TextStyle(
                         color: primaryColor,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 16
                       ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 20.0),
+              const SizedBox(height: defaultPadding),
 
                 // Sign Up Button
                 Center(
@@ -142,22 +137,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: primaryColor,
-                        padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        padding: const EdgeInsets.symmetric(vertical: defaultPadding),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(borderRadiusSizeMine),
                         ),
                       ),
                       child: const Text(
                         'Sign In',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white
-                          ),
+                        style: buttonBgText
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 30.0),
+                const SizedBox(height: defaultPadding * 2),
 
                 // Already Have an Account?
                 Center(
@@ -165,8 +157,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Already have an account? ',
-                        style: TextStyle(color: textColorSmall),
+                        'No yet have account? ',
+                        style: TextStyle(
+                          color: textColorSmall,
+                          fontSize: 16
+                        ),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -176,6 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           'Sign Up',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            fontSize: 16,
                             color: primaryColor,
                           ),
                         ),

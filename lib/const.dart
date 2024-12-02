@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snaft/size_config.dart';
 
 // =============== COLORS ===============
 const primaryColor = Color(0xFF6BC75B);
@@ -18,6 +19,12 @@ const mainTitle = TextStyle(
 const subMainTitle = TextStyle(
   color: textColorSmall,
   fontSize: 16,
+);
+
+var textTitle = TextStyle(
+  color: textColor,
+  fontSize: getProportionateScreenWidth(24.0),
+  fontWeight: FontWeight.w600
 );
 
 const subTitle = TextStyle(
@@ -41,6 +48,11 @@ const cardText = TextStyle(
   fontSize: 14,
 );
 
+const buttonBgText = TextStyle(
+  color: Colors.white,
+  fontSize: 16,
+);
+
 // =============== SIZE & DURATION ===============
 // Animation Duration
 const animationDuration = Duration(milliseconds: 200);
@@ -50,3 +62,24 @@ const defaultPadding = 20.0;
 
 // Border Radius
 const borderRadiusSizeMine = 18.0;
+
+InputBorder enabledUnderline = const UnderlineInputBorder(
+  borderSide: BorderSide(
+    width: 1,
+    color: textColorSmall
+  )
+);
+
+InputBorder focusedUnderline = const UnderlineInputBorder(
+  borderSide: BorderSide(
+    width: 1,
+    color: primaryColor
+  )
+);
+
+InputBorder errorUnderline = const UnderlineInputBorder(
+  borderSide: BorderSide(
+    width: 1,
+    color: Colors.red
+  )
+);

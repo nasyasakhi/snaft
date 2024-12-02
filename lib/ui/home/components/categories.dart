@@ -10,9 +10,9 @@ class Categories extends StatefulWidget {
 
 class _CategoriesState extends State<Categories> {
   final List<String> categories = [
-    "Semua",
-    "Desain 3D",
-    "Cloud Computing",
+    "All",
+    "Vegetables",
+    "Fruits",
     "Bakery",
     "Snack",
   ];
@@ -25,38 +25,32 @@ class _CategoriesState extends State<Categories> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Rekomendasi dan View All
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0), // Tambahkan padding horizontal
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                "Recommendation",
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              "Recommendation",
+              style: subTitle
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: const Text(
+                "View All",
                 style: TextStyle(
-                  fontSize: 20,
+                  color: primaryColor,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  "View All",
-                  style: TextStyle(
-                    color: primaryColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: defaultPadding),
         // Daftar Kategori
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: SizedBox(
-            height: 50, // Atur tinggi agar tidak terlalu besar
+            height: 45, // Atur tinggi agar tidak terlalu besar
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: categories.length,
@@ -79,8 +73,8 @@ class _CategoriesState extends State<Categories> {
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        margin: const EdgeInsets.symmetric(horizontal: 6.0),
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+        margin: const EdgeInsets.symmetric(horizontal: defaultPadding / 4),
+        padding: const EdgeInsets.symmetric(horizontal: defaultPadding, vertical: defaultPadding / 2),
         decoration: BoxDecoration(
           color: isSelected ? primaryColor : Colors.transparent,
           borderRadius: BorderRadius.circular(borderRadiusSizeMine),

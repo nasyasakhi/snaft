@@ -34,6 +34,20 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/login');
+            }, 
+            child: const Text(
+              'Skip',
+              style: mainTitle,
+            )
+          )
+        ],
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -65,17 +79,19 @@ class _BodyState extends State<Body> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(defaultPadding),
               child: Column(
                 children: [
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: defaultPadding),
                         backgroundColor: primaryColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(borderRadiusSizeMine),
                         ),
+
                       ),
                       onPressed: () {
                         if (currentPage == splashData.length - 1) {
@@ -89,34 +105,11 @@ class _BodyState extends State<Body> {
                       },
                       child: Text(
                         currentPage == splashData.length - 1 ? "Get Started" : "Next",
-                        style: const TextStyle(color: Colors.white),
+                        style: buttonBgText
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10),
-                   Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Already have an account? ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                          Navigator.pushNamed(context, '/login');
-                          },
-                          child: const Text(
-                            'Log In',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                   ),
+                  const SizedBox(height: defaultPadding * 3)
                 ],
               ),
             ),

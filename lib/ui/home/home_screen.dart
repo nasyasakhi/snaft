@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:snaft/camera/camera_screen.dart';
 import 'package:snaft/const.dart';
+import 'package:snaft/models/recipes.dart';
 import 'package:snaft/ui/favorite/favorite_screen.dart';
 import 'package:snaft/ui/home/components/bottom_nav_bar.dart';
 import 'package:snaft/ui/home/components/categories.dart';
 import 'package:snaft/ui/profile/profile_screen.dart';
+import 'package:snaft/ui/search/components/menu_card.dart';
 import 'package:snaft/ui/search/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +15,7 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
+// TODO - benerin biar kek carousel TOLONG KFJDAKJAKKDJAJKGJKJGKHAK
 class _HomeScreenState extends State<HomeScreen> {
   final List<Map<String, String>> headerImages = [
     {"image": "assets/images/banner/banner_1.png"},
@@ -48,9 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
       body: _selectedIndex == 0
       ? Padding(
         padding: const EdgeInsets.all(defaultPadding),
-        child: Center(
+        child: SingleChildScrollView(
           child: Column(
             children: [
+              const SizedBox(height: defaultPadding * 3),
               const Text(
                 "Hello ShikShakShok,",
                 style: mainTitle,
@@ -66,41 +69,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     const Padding(
                       padding: EdgeInsets.only(
                         top: defaultPadding,
-                        right: defaultPadding,
-                        left: defaultPadding,
                       ),
                     ),
                     // PageView with dots indicator
-                    Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: defaultPadding),
-                      child: SizedBox(
-                        height: 200,
-                        child: PageView.builder(
-                          controller: _pageController,
-                          onPageChanged: (index) {
-                            setState(() {
-                              _currentPage = index;
-                            });
-                          },
-                          itemCount: headerImages.length,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: const EdgeInsets.symmetric(horizontal: 5),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
+                    SizedBox(
+                      height: 200,
+                      child: PageView.builder(
+                        controller: _pageController,
+                        onPageChanged: (index) {
+                          setState(() {
+                            _currentPage = index;
+                          });
+                        },
+                        itemCount: headerImages.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Image.asset(
+                                headerImages[index]['image']!,
+                                fit: BoxFit.contain,
+                                width: double.infinity,
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: Image.asset(
-                                  headerImages[index]['image']!,
-                                  fit: BoxFit.contain,
-                                  width: double.infinity,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -120,7 +116,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: defaultPadding),
                     const Categories(),
+                    const SizedBox(height: defaultPadding * 2),
+                    const Text(
+                      "New Recipe",
+                      style: subTitle,
+                    ),
                     const SizedBox(height: defaultPadding),
+                    SizedBox(
+                      height: 240,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: Recipes.recipes.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final recipe = Recipes.recipes[index];
+                          return MenuCard(
+                            recipes: recipe, 
+                            title: recipe.title, 
+                            subtitle: recipe.subtitle, 
+                            image: recipe.image
+                          );
+                        }
+                      ),
+                    ),
                   ],
                 ),
               ),

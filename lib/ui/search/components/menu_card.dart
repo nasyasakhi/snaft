@@ -36,7 +36,12 @@ class MenuCard extends StatelessWidget {
                   ),
                 child: Hero(
                   tag: "${recipes.id}", 
-                  child: Image.asset(recipes.image)
+                  child: Image.asset(
+                    recipes.image,
+                    height: 150,
+                    width: 250,
+                    fit: BoxFit.cover,
+                  )
                 ),
               ),
               Padding(

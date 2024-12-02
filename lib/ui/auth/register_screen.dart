@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snaft/const.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 50.0),
+          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 120.0),
           child: Form(
             key: _formSignUpKey,
             child: Column(
@@ -27,31 +28,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const Center(
                   child: Text(
                     'Snaft',
-                    style: TextStyle(
-                      fontSize: 32.0,
-                      fontWeight: FontWeight.bold,
-                      color: primaryColor,
-                    ),
+                    style: mainTitle
                   ),
                 ),
                 const SizedBox(height: 50.0),
 
                 // Title
-                const Text(
+                Text(
                   'Sign Up',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: textTitle
                 ),
                 const SizedBox(height: 10.0),
-
+                                
                 // Subtitle
                 const Text(
                   'Enter your credentials to continue',
-                  style: TextStyle(
-                    color: Colors.grey,
-                  ),
+                  style: subMainTitle
                 ),
                 const SizedBox(height: 30.0),
 
@@ -63,13 +55,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     }
                     return null;
                   },
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Username',
-                    labelStyle: TextStyle(color: Colors.grey),
-                    border: UnderlineInputBorder(),
+                    labelStyle: const TextStyle(color: Colors.grey),
+                    enabledBorder: enabledUnderline,
+                    focusedBorder: focusedUnderline,
+                    errorBorder: errorUnderline
                   ),
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: defaultPadding),
 
                 // Email Field
                 TextFormField(
@@ -82,13 +76,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     }
                     return null;
                   },
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Email',
-                    labelStyle: TextStyle(color: Colors.grey),
-                    border: UnderlineInputBorder(),
+                    labelStyle: const TextStyle(color: Colors.grey),
+                    enabledBorder: enabledUnderline,
+                    focusedBorder: focusedUnderline,
+                    errorBorder: errorUnderline
                   ),
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: defaultPadding),
 
                 // Password Field
                 TextFormField(
@@ -105,12 +101,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                     labelText: 'Password',
                     labelStyle: const TextStyle(color: Colors.grey),
-                    border: const UnderlineInputBorder(),
+                    enabledBorder: enabledUnderline,
+                    focusedBorder: focusedUnderline,
+                    errorBorder: errorUnderline,
                     suffixIcon: IconButton(
-                      icon: Icon(
+                      icon: SvgPicture.asset(
                         isPasswordVisible
-                            ? Icons.visibility
-                            : Icons.visibility_off,
+                            ? 'assets/icons/fi-rr-eye.svg'
+                            : 'assets/icons/fi-rr-eye-crossed.svg',
+                        colorFilter: const ColorFilter.mode(textColorSmall, BlendMode.srcIn),
                       ),
                       onPressed: () {
                         setState(() {
@@ -120,16 +119,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: defaultPadding / 2),
 
                 // Terms and Policy
                 const Text(
-                  'By continuing you agree to our Terms of Service and Privacy Policy',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: textColorSmall, fontSize: 12.0),
+                  'By continuing you agree to our \nTerms of Service and Privacy Policy',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    color: textColorSmall, 
+                    fontSize: 14.0
+                  ),
                 ),
                 const SizedBox(height: 40.0),
-
+ 
                 // Sign Up Button
                 Center(
                   child: SizedBox(
@@ -143,7 +145,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           );
                        Future.delayed(const Duration(seconds: 1), () {
-                       Navigator.pushReplacementNamed(context, '/body');
+                       Navigator.pushReplacementNamed(context, '/home');
                          });
                         }
                       },
@@ -173,17 +175,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     children: [
                       const Text(
                         'Already have an account? ',
-                        style: TextStyle(color: textColorSmall),
+                        style: TextStyle(
+                          color: textColorSmall,
+                          fontSize: 16
+                        ),
                       ),
                       GestureDetector(
                         onTap: () {
                          Navigator.pushNamed(context, '/login');
                         },
                         child: const Text(
-                          'Log In',
+                          'Sign In',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: primaryColor,
+                            fontSize: 16
                           ),
                         ),
                       ),
