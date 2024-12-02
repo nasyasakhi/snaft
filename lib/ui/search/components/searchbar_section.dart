@@ -12,6 +12,8 @@ class SearchbarSection extends StatefulWidget {
 }
 
 class _SearchbarSectionState extends State<SearchbarSection> {
+  final List<String> _searchHistory = []; // Simpan riwayat pencarian
+
   @override
   Widget build(BuildContext context) {
     return SearchAnchor(
@@ -46,20 +48,20 @@ class _SearchbarSectionState extends State<SearchbarSection> {
         final String keyword = controller.text;
 
         // Buat suggestion dinamis berdasarkan keyword
-        final List<String> suggestions = List.generate(max(1, 5), (int index) {
-          return keyword.isEmpty 
-              ? ''
-              : keyword;
-        });
+        final List<String> suggestions = keyword.isEmpty
+        ? _searchHistory
+        : [controller.text];
 
       return suggestions.map((suggestion) {
           return Container(
-            height: suggestion.length.toDouble(),
             color: Colors.blueGrey.shade50, // Warna latar belakang
             child: ListTile(
               title: Text(suggestion),
               onTap: () {
                 setState(() {
+                  if (!_searchHistory.contains(suggestion)) {
+                    _searchHistory.add(suggestion);
+                  } 
                   controller.closeView(suggestion);
                 });
               },
