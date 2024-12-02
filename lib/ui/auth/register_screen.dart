@@ -145,6 +145,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           );
                        Future.delayed(const Duration(seconds: 1), () {
+                        // ignore: use_build_context_synchronously
                        Navigator.pushReplacementNamed(context, '/home');
                          });
                         }

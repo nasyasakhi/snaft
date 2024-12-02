@@ -10,8 +10,8 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  int currentPage = 0;
-  final PageController _pageController = PageController();
+  int currentPage = 0; // Menyimpan indeks halaman aktif saat ini
+  final PageController _pageController = PageController(); //mengatur navigasi antar halaman
 
   List<Map<String, String>> splashData = [
     {
@@ -48,7 +48,7 @@ class _BodyState extends State<Body> {
           )
         ],
       ),
-      body: SafeArea(
+      body: SafeArea( // memastikan elemen penting tidak terpotong (safe)
         child: Column(
           children: [
             Expanded(
@@ -63,7 +63,7 @@ class _BodyState extends State<Body> {
                     });
                   },
                   itemCount: splashData.length,
-                  itemBuilder: (context, index) => SplashContent(
+                  itemBuilder: (context, index) => SplashContent( // jembatan antara ui ke data
                     title: splashData[index]["title"]!,
                     subtitle: splashData[index]["subtitle"]!,
                     image: splashData[index]["image"]!,

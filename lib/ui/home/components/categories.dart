@@ -24,7 +24,6 @@ class _CategoriesState extends State<Categories> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Rekomendasi dan View All
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -50,9 +49,9 @@ class _CategoriesState extends State<Categories> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: SizedBox(
-            height: 45, // Atur tinggi agar tidak terlalu besar
+            height: 45, 
             child: ListView.builder(
-              scrollDirection: Axis.horizontal,
+              scrollDirection: Axis.horizontal, //
               itemCount: categories.length,
               itemBuilder: (context, index) => _buildCategoryCard(index),
             ),

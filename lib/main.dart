@@ -25,7 +25,7 @@ class Snaft extends StatelessWidget {
         brightness: Brightness.light,
         scaffoldBackgroundColor: const Color(0xFFF7FAFC),
         fontFamily: 'Signika',
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        visualDensity: VisualDensity.adaptivePlatformDensity, // mengatur kepadatan
 
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFFF6FAFC),
@@ -47,7 +47,7 @@ class Snaft extends StatelessWidget {
       ),
 
       initialRoute: '/',
-
+      
       routes: {
         '/' : (context) => const SplashScreen(),
         '/body' : (context) => const Body(),
