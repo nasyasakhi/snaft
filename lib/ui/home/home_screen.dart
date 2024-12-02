@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-// TODO - benerin biar kek carousel TOLONG KFJDAKJAKKDJAJKGJKJGKHAK
+
 class _HomeScreenState extends State<HomeScreen> {
   final List<Map<String, String>> headerImages = [
     {"image": "assets/images/banner/banner_1.png"},
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const Categories(),
                     const SizedBox(height: defaultPadding * 2),
                     const Text(
-                      "New Recipe",
+                      "New Recipes",
                       style: subTitle,
                     ),
                     const SizedBox(height: defaultPadding),
